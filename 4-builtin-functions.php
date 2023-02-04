@@ -203,3 +203,124 @@ echo date("Y-m-d h:i:sa", filemtime("welcome.txt")); // 2020-03-01 12:00:00am
 ?>
 
 <!-- ----------------------------------------------------------------- -->
+
+<!-- (f) PHP Form Handling Functions -->
+<!-- syntax -->
+<?php
+// htmlspecialchars is used to convert special characters to HTML entities
+echo htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES); // &lt;a href=&#039;test&#039;&gt;Test&lt;/a&gt;
+
+// strip_tags is used to strip HTML and PHP tags from a string
+echo strip_tags("<p>Test paragraph.</p><!-- Comment --> <a href='#fragment'>Other text</a>"); // Test paragraph. Other text
+
+// stripslashes is used to un-quotes a quoted string
+echo stripslashes("Is your name O\'reilly?"); // Is your name O'reilly?
+
+// htmlentities is used to convert all applicable characters to HTML entities
+echo htmlentities("A 'quote' is <b>bold</b>"); // A &#039;quote&#039; is &lt;b&gt;bold&lt;/b&gt;
+
+// nl2br is used to insert HTML line breaks before all newlines in a string
+echo nl2br("One line.\r Another line."); // One line. Another line.
+
+// trim is used to strip whitespace (or other characters) from the beginning and end of a string
+echo trim(" Hello World "); // Hello World
+
+// ltrim is used to strip whitespace (or other characters) from the beginning of a string
+echo ltrim(" Hello World "); // Hello World
+
+// rtrim is used to strip whitespace (or other characters) from the end of a string
+echo rtrim(" Hello World "); // Hello World
+
+// strlen is used to get the length of a string
+echo strlen("Hello world!"); // 12
+
+// strcmp is used to binary safe string comparison
+echo strcmp("Hello world!", "Hello world!"); // 0
+
+// strcasecmp is used to binary safe case-insensitive string comparison
+echo strcasecmp("Hello world!", "HELLO WORLD!"); // 0
+
+// strncmp is used to binary safe string comparison of the first n characters
+echo strncmp("Hello world!", "Hello world!", 6); // 0
+
+// strncasecmp is used to binary safe case-insensitive string comparison of the first n characters
+echo strncasecmp("Hello world!", "HELLO WORLD!", 6); // 0
+
+// strnatcmp is used to string comparison using a "natural order" algorithm
+echo strnatcmp("2Hello world!", "10Hello world!"); // -1
+
+// strnatcasecmp is used to case-insensitive string comparison using a "natural order" algorithm
+echo strnatcasecmp("2Hello world!", "10HELLO WORLD!"); // -1
+
+// substr_compare is used to binary safe comparison of two strings from an offset, up to length characters
+echo substr_compare("Hello world!", "Hello earth!", 6, 5); // 0
+
+// substr_count is used to count the number of substring occurrences
+echo substr_count("Hello world. The world is nice", "world"); // 2
+
+// substr is used to return part of a string
+echo substr("Hello world", 6); // world
+
+// substr_replace is used to replace text within a portion of a string
+echo substr_replace("Hello world", "earth", 6); // Hello earth
+
+// str_replace is used to replace all occurrences of the search string with the replacement string
+echo str_replace("world", "Dolly", "Hello world!"); // Hello Dolly!
+
+// str_ireplace is used to replace all occurrences of the search string with the replacement string
+echo str_ireplace("WORLD", "Dolly", "Hello world!"); // Hello Dolly!
+
+// str_repeat is used to repeat a string
+echo str_repeat("Hello", 2); // HelloHello
+
+// str_shuffle is used to randomly shuffle all characters in a string
+echo str_shuffle("Hello world!"); // !dlrow olleH
+
+// str_split is used to convert a string to an array
+print_r(str_split("Hello")); // Array ( [0] => H [1] => e [2] => l [3] => l [4] => o )
+
+// str_word_count is used to return information about words used in a string
+print_r(str_word_count("Hello world!", 1)); // Array ( [0] => Hello [1] => world )
+
+// strrev is used to reverse a string
+echo strrev("Hello world!"); // !dlrow olleH
+
+// strtolower is used to make a string lowercase
+echo strtolower("Hello WORLD!"); // hello world!
+
+// strtoupper is used to make a string uppercase
+echo strtoupper("Hello WORLD!"); // HELLO WORLD!
+
+// ucfirst is used to make a string's first character uppercase
+echo ucfirst("hello world!"); // Hello world!
+
+// lcfirst is used to make a string's first character lowercase
+echo lcfirst("HELLO WORLD!"); // hELLO WORLD!
+
+// ucwords is used to capitalize the first character of each word in a string
+echo ucwords("hello world!"); // Hello World!
+
+// strip_tags is used to strip HTML and PHP tags from a string
+echo strip_tags("<p>Test paragraph.</p><!-- Comment --> <a href='#fragment'>Other text</a>"); // Test paragraph. Other text
+
+// htmlspecialchars is used to convert special characters to HTML entities
+echo htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES); // &lt;a href=&#039;test&#039;&gt;Test&lt;/a&gt;
+
+// htmlentities is used to convert all applicable characters to HTML entities
+echo htmlentities("A 'quote' is <b>bold</b>"); // A &#039;quote&#039; is &lt;b&gt;bold&lt;/b&gt;
+
+// nl2br is used to insert HTML line breaks before all newlines in a string
+echo nl2br("One line.\r Another line."); // One line. Another line.
+
+// md5 is used to calculate the md5 hash of a string
+echo md5("Hello world!"); // 5eb63bbbe01eeed093cb22bb8f5acdc3
+
+// sha1 is used to calculate the sha1 hash of a string
+echo sha1("Hello world!"); // 2aae6c35c94fcfb415dbe95f408b9ce91ee846ed
+
+// crypt is used to one-way string hashing
+// echo crypt("Hello world!"); // $1$J9..$1J9XZ7Z7Z7Z7Z7Z7Z7Z7Z7
+
+?>
+
+<!-- ----------------------------------------------------------------- -->
