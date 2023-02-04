@@ -123,3 +123,83 @@ if (checkdate(12, 31, 2000)) {
 <!-- ----------------------------------------------------------------- -->
 
 <!-- (e) PHP File System Functions -->
+<!-- syntax -->
+<?php
+// fopen is used to open a file
+$file = fopen("welcome.txt", "r");
+
+// fread is used to read a file
+echo fread($file, filesize("welcome.txt"));
+
+// fclose is used to close an open file
+fclose($file);
+
+// fwrite is used to write to a file
+fwrite($file, "Hello World. Testing!");
+
+// file_exists is used to check if a file or directory exists
+if (file_exists("welcome.txt")) {
+    echo "The file exists";
+} else {
+    echo "The file does not exist";
+} // The file exists
+
+// unlink is used to delete a file
+unlink("welcome.txt");
+
+// mkdir is used to create a directory
+mkdir("newfolder");
+
+// rmdir is used to remove a directory
+rmdir("newfolder");
+
+// copy is used to copy a file
+copy("welcome.txt", "welcome2.txt");
+
+// rename is used to rename a file or directory
+rename("welcome2.txt", "welcome3.txt");
+
+// is_dir is used to check if a file is a directory
+if (is_dir("newfolder")) {
+    echo "It is a directory";
+} else {
+    echo "It is not a directory";
+} // It is a directory
+
+// is_file is used to check if a file is a regular file
+if (is_file("welcome.txt")) {
+    echo "It is a regular file";
+} else {
+    echo "It is not a regular file";
+} // It is a regular file
+
+// file_get_contents is used to read a file into a string
+echo file_get_contents("welcome.txt");
+
+// file_put_contents is used to write a string to a file
+file_put_contents("welcome.txt", "Hello World. Testing!");
+
+// file is used to read a file into an array
+print_r(file("welcome.txt"));
+
+// scandir is used to list files and directories inside the specified path
+$files = scandir("newfolder");
+
+// chdir is used to change the current directory
+chdir("newfolder");
+
+// getcwd is used to get the current directory
+echo getcwd(); // /home/user/newfolder
+
+// fileatime is used to get the last access time of a file
+echo date("Y-m-d h:i:sa", fileatime("welcome.txt")); // 2020-03-01 12:00:00am
+
+// filectime is used to get the inode change time of a file
+echo date("Y-m-d h:i:sa", filectime("welcome.txt")); // 2020-03-01 12:00:00am
+
+// filemtime is used to get the time the file was last modified
+echo date("Y-m-d h:i:sa", filemtime("welcome.txt")); // 2020-03-01 12:00:00am
+
+?>
+
+<!-- ----------------------------------------------------------------- -->
