@@ -81,3 +81,76 @@ for ($row = 0; $row < 4; $row++) {
     echo "</ul>";
 }
 ?>
+
+<!-- Sorting arrays -->
+<!-- sort() - sort arrays in ascending order -->
+<!-- rsort() - sort arrays in descending order -->
+<!-- asort() - sort associative arrays in ascending order, according to the value -->
+<!-- ksort() - sort associative arrays in ascending order, according to the key -->
+<!-- arsort() - sort associative arrays in descending order, according to the value -->
+<!-- krsort() - sort associative arrays in descending order, according to the key -->
+<?php
+$numbers = array(4, 6, 2, 22, 11);
+sort($numbers);
+
+$age = array("Peter" => "35", "Ben" => "37", "Joe" => "43");
+asort($age);
+?>
+<!-- --------------------------------------------------------------------- -->
+
+<!-- Array functions -->
+<!-- --------------------------------------------------------------------- -->
+
+<!-- count() - return the number of elements in an array -->
+<?php
+$colors = array("red", "green", "blue", "yellow");
+echo count($colors);
+?>
+
+<!-- array_sum() - return the sum of the values in an array -->
+<?php
+$numbers = array(4, 6, 2, 22, 11);
+echo array_sum($numbers);
+?>
+
+<!-- array_product() - return the product of the values in an array -->
+<?php
+$numbers = array(4, 6, 2, 22, 11);
+echo array_product($numbers);
+?>
+
+<!-- array_reverse() - return an array in the reverse order -->
+<?php
+$colors = array("red", "green", "blue", "yellow");
+$reversed = array_reverse($colors);
+?>
+
+<!-- in_array() - check if a value exists in an array -->
+<?php
+$colors = array("red", "green", "blue", "yellow");
+if (in_array("red", $colors)) {
+    echo "Match found";
+} else {
+    echo "Match not found";
+}
+?>
+
+<!-- array_rand() - return a random key from an array -->
+<?php
+$colors = array("red", "green", "blue", "yellow");
+$randomIndex = array_rand($colors);
+echo $colors[$randomIndex];
+?>
+
+<!-- array_unique() - remove duplicate values from an array -->
+<?php
+$colors = array("red", "green", "blue", "yellow", "red");
+print_r(array_unique($colors));
+?>
+
+<!-- array_merge() - merge one or more arrays -->
+<?php
+$color1 = array("red", "green");
+$color2 = array("blue", "yellow");
+$color3 = array("purple", "orange");
+$merged = array_merge($color1, $color2, $color3);
