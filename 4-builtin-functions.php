@@ -279,7 +279,7 @@ echo str_shuffle("Hello world!"); // !dlrow olleH
 // str_split is used to convert a string to an array
 print_r(str_split("Hello")); // Array ( [0] => H [1] => e [2] => l [3] => l [4] => o )
 
-// str_word_count is used to return information about words used in a string
+// The PHP str_word_count() function counts the number of words in a string.
 print_r(str_word_count("Hello world!", 1)); // Array ( [0] => Hello [1] => world )
 
 // strrev is used to reverse a string
@@ -321,6 +321,26 @@ echo sha1("Hello world!"); // 2aae6c35c94fcfb415dbe95f408b9ce91ee846ed
 // crypt is used to one-way string hashing
 // echo crypt("Hello world!"); // $1$J9..$1J9XZ7Z7Z7Z7Z7Z7Z7Z7Z7
 
+// base64_encode is used to encode data with MIME base64
+echo base64_encode("Hello world!"); // SGVsbG8gd29ybGQh
+
+// base64_decode is used to decode data encoded with MIME base64
+echo base64_decode("SGVsbG8gd29ybGQh"); // Hello world!
+
+// number_format is used to format a number with grouped thousands
+echo number_format(1234.56); // 1,235
+
+// ord is used to return ASCII value of character
+echo ord("Hello world!"); // 72
+
+// chr is used to convert ASCII value to character
+echo chr(72); // H
+
+// ucfirst is used to make a string's first character uppercase
+echo ucfirst("hello world!"); // Hello world!
+
+// lcfirst is used to make a string's first character lowercase
+echo lcfirst("HELLO WORLD!"); // hELLO WORLD!
 ?>
 
 <!-- ----------------------------------------------------------------- -->
