@@ -1,6 +1,9 @@
 <!-- PHP Forms -->
 <!-- --------------------------------------------------------------------- -->
 
+<!-- (a) Form Handling -->
+<!-- --------------------------------------------------------------------- -->
+
 <!-- A form is a document that contains input fields that a user can fill out and submit to a server. -->
 <!-- The server processes the form data and sends a response back to the user. -->
 <!-- The form data is sent to the server using the HTTP POST method. -->
@@ -30,10 +33,57 @@
 <!-- The form data is sent to the file "welcome.php" with the POST method. -->
 <!-- The form data is sent as URL variables. -->
 
-<!-- Go direct to the example -->
 <!-- --------------------------------------------------------------------- -->
 <form action="welcome.php" method="post">
     Name: <input type="text" name="name"><br>
     E-mail: <input type="text" name="email"><br>
     <input type="submit">
 </form>
+
+<!-- The output could be something like this: -->
+
+Welcome Peter
+Your email address is peter@gmail.com
+<!-- --------------------------------------------------------------------- -->
+
+<!-- (b) Form Validation -->
+<!-- --------------------------------------------------------------------- -->
+
+<!-- Form validation is the process of checking if the form data is in the correct format. -->
+<!-- Form validation is often done on the server side. -->
+<!-- Form validation is also done on the client side. -->
+<!-- Form validation is done with JavaScript. -->
+<!-- Form validation can be done with PHP. -->
+
+<!-- The PHP $_SERVER["PHP_SELF"] variable returns the filename of the currently executing script. -->
+<!-- The PHP $_SERVER["PHP_SELF"] variable is a super global variable, which means that it is always accessible, regardless of scope. -->
+<!-- The PHP $_SERVER["PHP_SELF"] variable is used to collect form data after submitting an HTML form with method="post". -->
+<!-- The PHP $_SERVER["PHP_SELF"] variable is also used to collect form data after submitting an HTML form with method="get". -->
+<!-- The PHP $_SERVER["PHP_SELF"] variable is a global variable, which means that it can be used anywhere in the PHP script (also from outside functions or methods). -->
+
+<!-- The PHP $_REQUEST variable is used to collect data after submitting an HTML form. -->
+
+<!-- Example -->
+
+<?php
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = test_input($_POST["name"]);
+    $email = test_input($_POST["email"]);
+    $website = test_input($_POST["website"]);
+    $comment = test_input($_POST["comment"]);
+    $gender = test_input($_POST["gender"]);
+}
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>
+
+<!-- --------------------------------------------------------------------- -->
