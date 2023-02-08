@@ -324,3 +324,13 @@ echo sha1("Hello world!"); // 2aae6c35c94fcfb415dbe95f408b9ce91ee846ed
 ?>
 
 <!-- ----------------------------------------------------------------- -->
+
+<!-- (g) PHP Math Functions -->
+
+<?php
+
+// abs is used to return the absolute (positive) value of a number
+echo abs(-6.7); // 6.7
+
+// acos is used to return the arc cosine of a number
+echo acos(0.64); // 0.87605805059819
