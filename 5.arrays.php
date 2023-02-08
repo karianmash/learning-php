@@ -154,3 +154,30 @@ $color1 = array("red", "green");
 $color2 = array("blue", "yellow");
 $color3 = array("purple", "orange");
 $merged = array_merge($color1, $color2, $color3);
+
+print_r($merged);
+?>
+
+<!-- array_search() - search an array for a specific value and return the key -->
+<?php
+$colors = array("red", "green", "blue", "yellow");
+echo array_search("blue", $colors);
+?>
+
+<!-- range() - create an array containing a range of elements -->
+<?php
+$numbers = range(0, 5);
+print_r($numbers);
+?>
+
+<!-- shuffle() - shuffle an array meaning randomize the order of the elements ->
+<?php
+$numbers = range(1, 5);
+shuffle($numbers);
+
+foreach ($numbers as $number) {
+    echo "$number ";
+}
+?>
+
+<!-- --------------------------------------------------------------------- -->
