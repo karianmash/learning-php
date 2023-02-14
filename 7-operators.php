@@ -93,3 +93,18 @@ echo $x <=> $y; // 1
 echo $y <=> $x; // -1
 echo $x <=> $x; // 0
 ?>
+
+// 10. Null Coalescing Operator
+// $x = $y ?? $z;
+// if $y is set, $x = $y, otherwise $x = $z
+<?php
+$x = 10;
+$y = 6;
+$z = 3;
+echo $x = $y ?? $z; // 6
+echo $x = $z ?? $y; // 3
+?>
+
+
+
+<!-- ----------------------------------------------------------------- -->
