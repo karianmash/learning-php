@@ -65,3 +65,19 @@ echo $_GET['email'];
 
 // 5. $_FILES
 // -----------------------------------------------------------------------
+
+// $_FILES is a PHP super global variable which is used to collect data from
+// file uploads.
+// The example below shows how to use some of the elements in $_FILES:
+
+// The $_FILES["file"]["name"] returns the original name of the file on the client machine
+echo $_FILES['file']['name'];
+// The $_FILES["file"]["type"] returns the mime type of the file
+echo $_FILES['file']['type'];
+// The $_FILES["file"]["size"] returns the size, in bytes, of the uploaded file
+echo $_FILES['file']['size'];
+// The $_FILES["file"]["tmp_name"] returns the temporary filename of the file in which the uploaded file was stored on the server
+echo $_FILES['file']['tmp_name'];
+// The $_FILES["file"]["error"] returns the error code associated with this file upload
+echo $_FILES['file']['error'];
+// -----------------------------------------------------------------------
