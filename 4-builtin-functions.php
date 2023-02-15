@@ -24,6 +24,7 @@ echo str_word_count("Hello World!"); // 2
 echo strrev("Hello World!"); // !dlroW olleH
 // strpos is used to find the position of the first occurrence of a substring in a string
 echo strpos("Hello World!", "World"); // 6
+// str_replace is used to replace some characters with some other characters in a string
 echo str_replace("World", "Dolly", "Hello World!"); // Hello Dolly! 
 
 // str_split is used to split a string into an array
@@ -354,3 +355,12 @@ echo abs(-6.7); // 6.7
 
 // acos is used to return the arc cosine of a number
 echo acos(0.64); // 0.87605805059819
+?>
+
+<!-- ----------------------------------------------------------------- -->
+
+<?php
+// require_once is used to include and evaluate the specified file during the execution of the script. It returns TRUE on success, or FALSE on failure.
+
+// require_once 'db.php'; // database connection
+?>
