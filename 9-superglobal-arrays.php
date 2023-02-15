@@ -52,3 +52,16 @@ echo $_POST['email'];
 
 // 4. $_GET
 // -----------------------------------------------------------------------
+
+// $_GET is a PHP super global variable which is used to collect form data after
+// submitting an HTML form with method="get".
+// The example below shows how to use some of the elements in $_GET:
+
+// The $_GET["name"] returns the value of the name field from the form
+echo $_GET['name'];
+// The $_GET["email"] returns the value of the email field from the form
+echo $_GET['email'];
+// -----------------------------------------------------------------------
+
+// 5. $_FILES
+// -----------------------------------------------------------------------
