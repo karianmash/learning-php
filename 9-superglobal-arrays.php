@@ -154,4 +154,4 @@ function add()
     // Using GLOBALS['var_name']
     $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
 }
-// -----------------------------------------------------------------------
+?>
