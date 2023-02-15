@@ -81,3 +81,18 @@ echo $_FILES['file']['tmp_name'];
 // The $_FILES["file"]["error"] returns the error code associated with this file upload
 echo $_FILES['file']['error'];
 // -----------------------------------------------------------------------
+
+// 6. $_ENV
+// -----------------------------------------------------------------------
+
+// $_ENV is a PHP super global variable which is used to collect data from
+// environment variables.
+// The example below shows how to use some of the elements in $_ENV:
+
+// The $_ENV["name"] returns the value of the name field from the form
+echo $_ENV['name'];
+// The $_ENV["email"] returns the value of the email field from the form
+echo $_ENV['email'];
+// -----------------------------------------------------------------------
+
+// 7. $_COOKIE
