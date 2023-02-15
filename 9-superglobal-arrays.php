@@ -41,3 +41,14 @@ echo $_REQUEST['email'];
 // -----------------------------------------------------------------------
 
 // $_POST is a PHP super global variable which is used to collect form data after
+// submitting an HTML form with method="post".
+// The example below shows how to use some of the elements in $_POST:
+
+// The $_POST["name"] returns the value of the name field from the form
+echo $_POST['name'];
+// The $_POST["email"] returns the value of the email field from the form
+echo $_POST['email'];
+// -----------------------------------------------------------------------
+
+// 4. $_GET
+// -----------------------------------------------------------------------
