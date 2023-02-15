@@ -107,11 +107,20 @@ if ($result->num_rows > 0) {
 // 11. Execute a SELECT query
 $sql = "SELECT * FROM numbers";
 $result = $conn->query($sql);
-
 // Fetch rows as an array
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo "Number: " . $row["number"] . "<br>";
 }
+
+// 12. Execute an INSERT query
+$sql = "INSERT INTO myTable (column1, column2, column3) VALUES ('value1', 'value2', 'value3')";
+$conn->query($sql);
+// Get the ID of the last inserted row
+$last_id = $conn->insert_id;
+
+// Print the ID to the screen
+echo "Last inserted ID is: " . $last_id;
+
 
 // Close the connection
 $conn->close();
