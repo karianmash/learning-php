@@ -1,4 +1,4 @@
-<!-- MySQL methods -->
+<!-- MySQL methods for PHP -->
 <!-- ----------------------------------------------------------------------- -->
 
 <?php
@@ -17,6 +17,7 @@ if ($conn->connect_error) {
 }
 
 echo "Connected successfully";
+// -----------------------------------------------------------------------
 
 // 2. Create a database
 $sql = "CREATE DATABASE myDB";
@@ -25,6 +26,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating database: " . $conn->error;
 }
+// -----------------------------------------------------------------------
 
 // 3. Create a table
 $sql = "CREATE TABLE myTable (
@@ -39,6 +41,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating table: " . $conn->error;
 }
+// -----------------------------------------------------------------------
 
 // 4. Insert data into a table
 $sql = "INSERT INTO myTable (firstname, lastname, email)
@@ -48,6 +51,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+// -----------------------------------------------------------------------
 
 // 5. Update data in a table
 $sql = "UPDATE myTable SET lastname='Doe Jr.' WHERE id=1";
@@ -56,6 +60,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error updating record: " . $conn->error;
 }
+// -----------------------------------------------------------------------
 
 // 6. Delete data from a table
 $sql = "DELETE FROM myTable WHERE id=1";
@@ -64,6 +69,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error deleting record: " . $conn->error;
 }
+// -----------------------------------------------------------------------
 
 // 7. Select data from a table
 $sql = "SELECT id, firstname, lastname FROM myTable";
@@ -77,6 +83,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+// -----------------------------------------------------------------------
 
 // 8. Drop a table
 $sql = "DROP TABLE myTable";
@@ -85,11 +92,13 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error dropping table: " . $conn->error;
 }
+// -----------------------------------------------------------------------
 
 // 9. MySQL error
 if ($conn->error) {
     echo "MySQL error: " . $conn->error;
 }
+// -----------------------------------------------------------------------
 
 // 10. mysql_fetch_object
 $sql = "SELECT * FROM myTable";
@@ -103,6 +112,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+// -----------------------------------------------------------------------
 
 // 11. Execute a SELECT query
 $sql = "SELECT * FROM numbers";
@@ -111,6 +121,7 @@ $result = $conn->query($sql);
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo "Number: " . $row["number"] . "<br>";
 }
+// -----------------------------------------------------------------------
 
 // 12. Execute an INSERT query
 $sql = "INSERT INTO myTable (column1, column2, column3) VALUES ('value1', 'value2', 'value3')";
@@ -120,6 +131,7 @@ $last_id = $conn->insert_id;
 
 // Print the ID to the screen
 echo "Last inserted ID is: " . $last_id;
+// -----------------------------------------------------------------------
 
 
 // Close the connection
