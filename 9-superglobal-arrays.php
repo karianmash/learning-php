@@ -96,3 +96,31 @@ echo $_ENV['email'];
 // -----------------------------------------------------------------------
 
 // 7. $_COOKIE
+// -----------------------------------------------------------------------
+
+// $_COOKIE is a PHP super global variable which is used to collect data from
+// cookies.
+// The example below shows how to use some of the elements in $_COOKIE:
+
+// The $_COOKIE["name"] returns the value of the name field from the form
+echo $_COOKIE['name'];
+// The $_COOKIE["email"] gets the email from the cookie
+echo $_COOKIE['email'];
+// -----------------------------------------------------------------------
+
+// 8. $_SESSION
+// -----------------------------------------------------------------------
+
+// $_SESSION is a PHP super global variable which is used to collect data from
+// session variables.
+// The example below shows how to use some of the elements in $_SESSION:
+
+// The session_start() function must be the very first thing in your document. Before any HTML tags.
+// The $_SESSION["name"] accesses the session variable named "name"
+echo $_SESSION['name'];
+// The $_SESSION["email"] accesses the session variable named "email"
+echo $_SESSION['email'];
+// -----------------------------------------------------------------------
+
+// 9. $GLOBALS
+// -----------------------------------------------------------------------
