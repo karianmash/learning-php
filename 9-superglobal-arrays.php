@@ -120,7 +120,20 @@ echo $_COOKIE['email'];
 echo $_SESSION['name'];
 // The $_SESSION["email"] accesses the session variable named "email"
 echo $_SESSION['email'];
+// Set session variables
+$_SESSION['name'] = 'John';
 // -----------------------------------------------------------------------
 
 // 9. $GLOBALS
+// -----------------------------------------------------------------------
+
+// $GLOBALS is a PHP super global variable which is used to access global variables from anywhere in the PHP script.
+// The example below shows how to use some of the elements in $GLOBALS:
+
+// The $GLOBALS["name"] accesses the global variable named "name"
+echo $GLOBALS['name'];
+// The $GLOBALS["email"] accesses the global variable named "email"
+echo $GLOBALS['email'];
+// Define Global Variables
+$name = 'John';
 // -----------------------------------------------------------------------
