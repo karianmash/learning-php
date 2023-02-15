@@ -5,13 +5,25 @@
 // MySQL methods
 // -----------------------------------------------------------------------
 
-// Connect to MySQL
-function mysqlConnect($host, $user, $pass, $db)
-{
-    $link = mysql_connect($host, $user, $pass);
-    if (!$link) {
-        die('Could not connect: ' . mysql_error());
-    }
+// 1. Connect to MySQL
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database";
 
-    mysql_select_db($db);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    // die() is a function that kills the script
+    die("Connection failed: " . $conn->connect_error);
 }
+
+echo "Connected successfully";
+
+// 2. Create a database
+$sql = "CREATE DATABASE myDB";
+
+
+?>
