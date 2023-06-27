@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * When a class extends another class, it inherits all of the parent's public and protected properties and methods.
+ */ 
 class Animal
 {
     protected $name;

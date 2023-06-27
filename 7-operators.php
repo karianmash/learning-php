@@ -1,5 +1,6 @@
-<!-- (f) PHP Operators -->
 <?php
+// PHP Operators
+
 // 1. Arithmetic Operators  
 $x = 10;
 $y = 6;
@@ -52,6 +53,8 @@ echo $x and $y; // 6
 echo $x or $y; // 10
 echo $x xor $y; // 10
 echo !$x; // false
+echo $x && $y; // 6
+echo $x || $y; // 10
 
 // 6. String Operators
 $txt1 = "Hello";
@@ -68,52 +71,55 @@ echo $x === $y; // false
 echo $x != $y; // true
 echo $x <> $y; // true
 echo $x !== $y; // true
-?>
 
-<!-- 8. Conditional Assignment Operators -->
-<?php
+// 8. Conditional Assignment Operators
 // $x = $y ?? $z;
 // if $y is set, $x = $y, otherwise $x = $z
 $x = 10;
 $y = 6;
 $z = 3;
-echo $x = $y ?? $z; // 6
 echo $x = $z ?? $y; // 3
-?>
+// ech $x = $y ?? $/ 6
 
-<!-- 9. Spaceship Operator -->
-<!-- $x <=> $y -->
-<!-- Returns 0 if $x = $y -->
-<!-- Returns 1 if $x > $y -->
-<!-- Returns -1 if $x < $y  -->
-<?php
+//  9. Spaceship Operator
+//  $x <=> $y
+//  Returns 0 if $x = $y
+//  Returns 1 if $x > $y
+//  Returns -1 if $x < $y 
 $x = 10;
 $y = 6;
 echo $x <=> $y; // 1
-echo $y <=> $x; // -1
 echo $x <=> $x; // 0
-?>
+// cho $y <=> $x -1
 
-// 10. Null Coalescing Operator
-// $x = $y ?? $z;
-// if $y is set, $x = $y, otherwise $x = $z
-<?php
+//  10. Null Coalescing Operator
 $x = 10;
 $y = 6;
 $z = 3;
-echo $x = $y ?? $z; // 6
+
 echo $x = $z ?? $y; // 3
-?>
+// cho $x = $y ?; // 6
 
-// 11. Ternary Operator
-// $x = $y ? $z;
-// if $y is true, $x = $z
-<?php
+//  11. Ternary Operator
 $x = 10;
 $y = 6;
 $z = 3;
-echo $x = $y ? $z : 2;
-echo $x = $z ? $y : 5;
-?>
 
-<!-- ----------------------------------------------------------------- -->
+echo $x = $z ? $y : 5;
+// cho $x = $y ?: 2;
+// -----------------------------------------------------------------
+
+//  12. Scope Resolution Operator  -->
+/**
+ * The Scope Resolution Operator (also called Paamayim Nekudotayim) or in simpler terms, the double colon,
+ * is a token that allows access to static, constant, and overridden properties or methods of a class.
+ * When referencing these items from outside the class definition, use the name of the class.
+ * As of PHP 5.3.0, it's possible to reference the class using a variable.
+ */
+class MyClass
+{
+    const CONST_VALUE = 'A constant value';
+}
+
+$classname = 'MyClass';
+echo $classname::CONST_VALUE; // As of PHP 5.3.0
