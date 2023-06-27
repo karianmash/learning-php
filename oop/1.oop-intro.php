@@ -22,6 +22,6 @@ $car->speed = 100;
 $car->brand = 'Toyota';
 
 // Print to screen
-echo $car->color = "The car color is: " . $car->color . "\n";
+print $car->color = "The car color is: " . $car->color . "\n";
 echo $car->speed = "The car speed is: " . $car->speed . "\n";
 echo $car->brand = "The car brand is: " . $car->brand . "\n";
