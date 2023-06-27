@@ -59,3 +59,9 @@ echo $volvo->intro();
 
 $citroen = new citroen("Citroen", "red", 200000);
 echo $citroen->intro();
+
+
+/**
+ * - Abstract classes are used to provide a template for potential subclasses.
+ * - So it's not possible to create objects of an abstract class.
+ */
