@@ -123,3 +123,12 @@ class MyClass
 
 $classname = 'MyClass';
 echo $classname::CONST_VALUE; // As of PHP 5.3.0
+// -----------------------------------------------------------------
+
+//  13. Array Operators
+$x + $y;  //  Union of $x and $y
+$x == $y; //  Equality
+$x === $y; // Identity
+$x != $y; // Inequality
+$x <> $y; // Inequality
+$x !== $y; // Non-identity
