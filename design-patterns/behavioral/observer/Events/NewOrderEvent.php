@@ -2,20 +2,12 @@
 
 namespace Event;
 
-use Interfaces\Event;
+require_once('AbstractEvent.php');
 
-class NewOrderEvent implements Event
+class NewOrderEvent extends AbstractEvent
 {
-    private $name = 'New order';
-    private $message = 'The order has been received!';
-
-    public function getName()
+    public function __construct($message)
     {
-        return $this->name;
-    }
-
-    public function getMessage()
-    {
-        return $this->message;
+        parent::__construct('new_order', $message);
     }
 }

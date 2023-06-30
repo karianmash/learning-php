@@ -46,4 +46,9 @@ class EventManager
 
         return [];
     }
+
+    public function getAllSubscribers()
+    {
+        return $this->subscribers;
+    }
 }

@@ -2,20 +2,10 @@
 
 namespace Event;
 
-use Interfaces\Event;
-
-class UserRegisterEvent implements Event
+class UserRegisterEvent extends AbstractEvent
 {
-    private $name = 'User registered';
-    private $message = 'A new user has been registered!';
-
-    public function getName()
+    public function __construct($message)
     {
-        return $this->name;
-    }
-
-    public function getMessage()
-    {
-        return $this->message;
+        parent::__construct('user_register', $message);
     }
 }
