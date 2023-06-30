@@ -4,10 +4,10 @@ namespace Event;
 
 use Interfaces\Event;
 
-class NewOrderEvent implements Event
+class UserRegisterEvent implements Event
 {
-    private $name = 'New order';
-    private $message = 'The order has been received!';
+    private $name = 'User registered';
+    private $message = 'A new user has been registered!';
 
     public function getName()
     {

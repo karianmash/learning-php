@@ -9,6 +9,6 @@ class LoggerSubscriber implements Subscriber
 {
     public function update(Event $event)
     {
-        echo "Logger: Event occurred - " . $event->getName() . "\n";
+        echo "Logger: Event - " . $event->getName() . " - occured!\n";
     }
 }

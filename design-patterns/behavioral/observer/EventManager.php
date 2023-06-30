@@ -37,4 +37,13 @@ class EventManager
             }
         }
     }
+
+    public function getSubscribers($eventName)
+    {
+        if (isset($this->subscribers[$eventName])) {
+            return $this->subscribers[$eventName];
+        }
+
+        return [];
+    }
 }
