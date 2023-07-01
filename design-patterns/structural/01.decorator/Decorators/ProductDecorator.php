@@ -1,8 +1,8 @@
 <?php
 
-namespace DesignPatterns\Structural\Decorator;
+namespace DesignPatterns\Structural\Decorator\Decorators;
 
-require_once 'Interfaces/Product.php';
+require_once __DIR__ . '/../Interfaces/Product.php';
 
 use DesignPatterns\Structural\Decorator\Interfaces\Product;
 

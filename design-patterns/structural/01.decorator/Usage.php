@@ -3,12 +3,11 @@
 namespace DesignPatterns\Structural\Decorator;
 
 require_once 'BasicProduct.php';
-require_once 'GiftWrapDecorator.php';
-require_once 'ExpressShippingDecorator.php';
+require_once 'Decorators/GiftWrapDecorator.php';
+require_once 'Decorators/ExpressShippingDecorator.php';
 
-use DesignPatterns\Structural\Decorator\BasicProduct;
-use DesignPatterns\Structural\Decorator\GiftWrapDecorator;
-use DesignPatterns\Structural\Decorator\ExpressShippingDecorator;
+use DesignPatterns\Structural\Decorator\Decorators\GiftWrapDecorator;
+use DesignPatterns\Structural\Decorator\Decorators\ExpressShippingDecorator;
 
 $basicProduct = new BasicProduct(20.0, 'Basic Product');
 $giftWrapProduct = new GiftWrapDecorator($basicProduct, 5.0);

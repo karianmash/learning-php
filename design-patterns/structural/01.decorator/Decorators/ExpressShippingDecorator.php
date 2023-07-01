@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPatterns\Structural\Decorator;
+namespace DesignPatterns\Structural\Decorator\Decorators;
 
 require_once 'ProductDecorator.php';
 
