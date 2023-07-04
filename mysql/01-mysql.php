@@ -133,7 +133,6 @@ $last_id = $conn->insert_id;
 echo "Last inserted ID is: " . $last_id;
 // -----------------------------------------------------------------------
 
-
 // Close the connection
 $conn->close();
 ?>
