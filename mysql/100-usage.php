@@ -14,5 +14,8 @@ require_once __DIR__ . '/02-crud.php';
 // 4. Drop table
 // echo DBQueries::dropTable('users');
 
-// 5. Insert data
-echo DBQueries::insertData('class_001',  'John', 'Doe', 'john@example');
+// 5. Show tables
+// echo DBQueries::showTables();
+
+// 6. Insert data
+// echo DBQueries::insertData('class_001',  'John', 'Doe', 'john@example');

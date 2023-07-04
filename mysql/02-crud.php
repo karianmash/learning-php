@@ -66,6 +66,31 @@ class DBQueries
         }
     }
 
+    public static function showTables()
+    {
+        try {
+            $query = "SHOW TABLES";
+            $result = DBConnection::executeQuery($query);
+            if (!$result) {
+                throw new \Exception("Error showing tables: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
+            }
+
+            if (is_array($result)) {
+                echo "Tables in " . DB_NAME . " database:" . PHP_EOL . PHP_EOL;
+                $index = 1;
+                foreach ($result as $table) {
+                    echo $index . ". " .$table['Tables_in_' . DB_NAME] . PHP_EOL;
+                    $index++;
+                }
+            } else {
+                echo "No tables found in " . DB_NAME . " database." . PHP_EOL;
+            }
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
+    }
+
     public static function insertData($tableName, $firstname, $lastname, $email)
     {
         try {
