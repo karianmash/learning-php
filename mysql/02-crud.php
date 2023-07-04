@@ -8,7 +8,6 @@ class DBQueries
     {
         try {
             $query = "CREATE DATABASE $databaseName";
-
             $result = DBConnection::executeQuery($query);
             if (!$result) {
                 throw new \Exception("Error creating database: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
@@ -29,7 +28,7 @@ class DBQueries
             }
             echo "Database dropped successfully.";
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
@@ -45,11 +44,11 @@ class DBQueries
             )";
             $result = DBConnection::executeQuery($query);
             if (!$result) {
-                throw new \Exception("Error creating table: " . mysqli_error(DBConnection::$connection));
+                throw new \Exception("Error creating table: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
             }
-            echo "Table created successfully.";
+            echo "Table $tableName created successfully." . PHP_EOL;
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
@@ -59,9 +58,9 @@ class DBQueries
             $query = "DROP TABLE $tableName";
             $result = DBConnection::executeQuery($query);
             if (!$result) {
-                throw new \Exception("Error dropping table: " . mysqli_error(DBConnection::$connection));
+                throw new \Exception("Error dropping table: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
             }
-            echo "Table dropped successfully.";
+            echo "Table $tableName dropped successfully." . PHP_EOL;
         } catch (\Exception $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -88,11 +87,11 @@ class DBQueries
             $query = "UPDATE $tableName SET lastname='$lastname' WHERE id=$id";
             $result = DBConnection::executeQuery($query);
             if (!$result) {
-                throw new \Exception("Error updating data: " . mysqli_error(DBConnection::$connection));
+                throw new \Exception("Error updating data: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
             }
-            echo "Data updated successfully.";
+            echo "Data updated successfully." . PHP_EOL;
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
@@ -102,11 +101,11 @@ class DBQueries
             $query = "DELETE FROM $tableName WHERE id=$id";
             $result = DBConnection::executeQuery($query);
             if (!$result) {
-                throw new \Exception("Error deleting data: " . mysqli_error(DBConnection::$connection));
+                throw new \Exception("Error deleting data: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
             }
-            echo "Data deleted successfully.";
+            echo "Data deleted successfully." . PHP_EOL;
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
@@ -116,12 +115,12 @@ class DBQueries
             $query = "SELECT id, firstname, lastname FROM $tableName";
             $result = DBConnection::executeQuery($query);
             if (!$result) {
-                throw new \Exception("Error selecting data: " . mysqli_error(DBConnection::$connection));
+                throw new \Exception("Error selecting data: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
             }
-            echo "Data selected successfully.";
+            echo "Data selected successfully." . PHP_EOL;
             return $result;
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            echo $e->getMessage();
             return null;
         }
     }
