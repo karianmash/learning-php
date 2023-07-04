@@ -18,4 +18,21 @@ require_once __DIR__ . '/02-crud.php';
 // echo DBQueries::showTables();
 
 // 6. Insert data
-// echo DBQueries::insertData('class_001',  'John', 'Doe', 'john@example');
+// echo DBQueries::insertData('users',  [
+//     'firstname' => 'John',
+//     'lastname' => 'Doe',
+//     'email' => 'john@example.com',
+// ]);
+
+// 7. Select data
+// echo DBQueries::selectData('users');
+
+// 8. Update data
+// echo DBQueries::updateData('users', 2, [
+//     'firstname' => 'John',
+//     'lastname' => 'Doe',
+//     'email' => 'johndoe@example.com',
+// ]);
+
+// 9. Delete data
+echo DBQueries::deleteData('users', 2);

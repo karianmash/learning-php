@@ -79,7 +79,7 @@ class DBQueries
                 echo "Tables in " . DB_NAME . " database:" . PHP_EOL . PHP_EOL;
                 $index = 1;
                 foreach ($result as $table) {
-                    echo $index . ". " .$table['Tables_in_' . DB_NAME] . PHP_EOL;
+                    echo $index . ". " . $table['Tables_in_' . DB_NAME] . PHP_EOL;
                     $index++;
                 }
             } else {
@@ -91,29 +91,83 @@ class DBQueries
         }
     }
 
-    public static function insertData($tableName, $firstname, $lastname, $email)
+    public static function insertData($tableName, $data)
     {
         try {
-            $query = "INSERT INTO $tableName (firstname, lastname, email)
-            VALUES ('$firstname', '$lastname', '$email')";
-            $result = DBConnection::executeQuery($query);
+            // Generate the placeholders for the query
+            $placeholders = implode(', ', array_fill(0, count($data), '?'));
+
+            // Generate the column names for the query
+            $columns = implode(', ', array_keys($data));
+
+            // Prepare the query
+            $query = "INSERT INTO $tableName ($columns) VALUES ($placeholders)";
+            DBConnection::connect();
+            $statement = DBConnection::$connection->prepare($query);
+
+            // Bind the values to the prepared statement
+            $types = str_repeat('s', count($data));
+            $values = array_values($data);
+            $statement->bind_param($types, ...$values);
+
+            // Execute the statement
+            $result = $statement->execute();
             if (!$result) {
-                throw new \Exception("Error inserting data: " . mysqli_error(DBConnection::$connection));
+                throw new \Exception("Error inserting data: " . $statement->error . PHP_EOL);
             }
-            echo "Data inserted successfully.";
+
+            echo "Data inserted successfully." . PHP_EOL;
+            DBConnection::close();
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
-    public static function updateData($tableName, $id, $lastname)
+    public static function selectData($tableName)
     {
         try {
-            $query = "UPDATE $tableName SET lastname='$lastname' WHERE id=$id";
+            $query = "SELECT * FROM $tableName";
             $result = DBConnection::executeQuery($query);
+            if (!$result) {
+                throw new \Exception("Error selecting data: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
+            }
+
+            if (is_array($result)) {
+                echo "Data in $tableName table:" . PHP_EOL . PHP_EOL;
+                foreach ($result as $row) {
+                    foreach ($row as $columnName => $columnValue) {
+                        echo "$columnName: $columnValue" . PHP_EOL;
+                    }
+                    echo PHP_EOL;
+                }
+            } else {
+                echo "No data found in $tableName table." . PHP_EOL;
+            }
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return null;
+        }
+    }
+
+    public static function updateData($tableName, $id, $data)
+    {
+        try {
+            // Generate the update assignments for the query
+            $assignments = [];
+            foreach ($data as $column => $value) {
+                $assignments[] = "$column='$value'";
+            }
+            $assignments = implode(', ', $assignments);
+
+            // Prepare the query
+            $query = "UPDATE $tableName SET $assignments WHERE id=$id";
+            // DBConnection::connect();
+            $result = DBConnection::executeQuery($query);
+
             if (!$result) {
                 throw new \Exception("Error updating data: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
             }
+
             echo "Data updated successfully." . PHP_EOL;
         } catch (\Exception $e) {
             echo $e->getMessage();
@@ -128,30 +182,16 @@ class DBQueries
             if (!$result) {
                 throw new \Exception("Error deleting data: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
             }
-            echo "Data deleted successfully." . PHP_EOL;
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
-    }
 
-    public static function selectData($tableName)
-    {
-        try {
-            $query = "SELECT id, firstname, lastname FROM $tableName";
-            $result = DBConnection::executeQuery($query);
-            if (!$result) {
-                throw new \Exception("Error selecting data: " . mysqli_error(DBConnection::$connection) . PHP_EOL);
+            DBConnection::connect();
+            $affectedRows = mysqli_affected_rows(DBConnection::$connection);
+            if ($affectedRows > 0) {
+                echo "Data deleted successfully." . PHP_EOL;
+            } else {
+                throw new \Exception("No records found for deletion." . PHP_EOL);
             }
-            echo "Data selected successfully." . PHP_EOL;
-            return $result;
         } catch (\Exception $e) {
             echo $e->getMessage();
-            return null;
         }
-    }
-
-    public static function closeConnection()
-    {
-        DBConnection::close();
     }
 }

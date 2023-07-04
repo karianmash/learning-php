@@ -61,13 +61,18 @@ class DBConnection
     {
         try {
             if (!self::$connection) {
-                throw new \Exception("Connection not established.");
+                throw new \Exception("Connection not established or closed.");
             }
 
-            mysqli_close(self::$connection);
-            // echo "Database connection closed." . PHP_EOL;
+            if (mysqli_ping(self::$connection)) {
+                mysqli_close(self::$connection);
+                // echo "Database connection closed." . PHP_EOL;
+                self::$connection = null; // Reset the connection object
+            } else {
+                throw new \Exception("Connection already closed.");
+            }
         } catch (\Exception $e) {
-            // echo "Error: " . $e->getMessage() . PHP_EOL;
+            echo "Error closing database connection: " . $e->getMessage() . PHP_EOL;
         }
     }
 }
