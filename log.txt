@@ -1,0 +1,4 @@
+[2023-07-09 08:09:15] This is a log message.
+
+[2023-07-09 08:09:15] Another log message.
+

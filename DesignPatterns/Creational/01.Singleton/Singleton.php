@@ -26,7 +26,13 @@ class Logger
     public function log($message)
     {
         $timestamp = date('Y-m-d H:i:s');
-        fwrite($this->logFile, "[$timestamp] $message" . PHP_EOL);
+        fwrite($this->logFile, "[$timestamp] $message" . PHP_EOL . PHP_EOL);
+    }
+
+    // Method to prevent cloning of the singleton instance
+    public function __clone()
+    {
+        trigger_error('Cloning the singleton instance is not permitted.', E_USER_ERROR);
     }
 
     // Method to close the log file
@@ -38,6 +44,11 @@ class Logger
 
 // Usage:
 $logger = Logger::getInstance();
+
+// Try to clone the singleton instance
+$clonedSingleton = clone $logger; // This line will trigger an error
+
+// Log some messages
 $logger->log("This is a log message.");
 $logger->log("Another log message.");
 $logger->closeLogFile();
