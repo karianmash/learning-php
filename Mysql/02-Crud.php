@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/00-connection.php';
+require_once __DIR__ . '/00-Connection.php';
 
 class DBQueries
 {

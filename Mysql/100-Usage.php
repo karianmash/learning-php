@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/02-crud.php';
+require_once __DIR__ . '/02-Crud.php';
 
 // 1. Create database
 // echo DBQueries::createDatabase('class_001');
