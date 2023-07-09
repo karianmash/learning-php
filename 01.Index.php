@@ -13,14 +13,77 @@ lines
 ?>
 <!-- ----------------------------------------------------------------- -->
 
-<!-- (b) PHP Echo & Print -->
+
+
+<!-- (b) Printing in PHP -->
 <?php
-echo "Hello World!";
+// The echo statement is used to output data to the browser or command line (It is faster than print)
+echo "Hello World!"; // Hello World!
+
+/**
+ * Similar to echo, the print statement is used to output data to the browser or command line. 
+ * It also displays text or variable values, but it returns a value of 1, allowing it to be used
+ * within expressions
+ * It is slower than echo
+ */
 print "Hello World!";
+
+/**
+ * The var_dump() function is used to display detailed information about one or more variables.
+ * It shows the variable's data type, value, and additional metadata. It is useful for debugging and 
+ * introspection
+ */
+$array = [1, 2, 3];
+var_dump($array);
+
+/**
+ * The print_r() function is used to display information about a variable in a more human-readable format. 
+ * It is commonly used for debugging and displaying complex data structures like arrays and objects
+ */
+$array = [1, 2, 3];
+print_r($array);
+
+/**
+ *  The printf() function allows you to format and output text using placeholders and format specifiers. 
+ * It is useful for generating formatted output based on specific patterns
+ */
+$name = "John";
+$age = 25;
+printf("My name is %s and I am %d years old.", $name, $age);
+
+/**
+ * The sprintf() function works similarly to printf(), but instead of outputting directly, it returns the 
+ * formatted string. It allows you to store the formatted string in a variable for further manipulation or usage.
+ */
+$name = "John";
+$age = 25;
+$message = sprintf("My name is %s and I am %d years old.", $name, $age);
+echo $message;
+
+/**
+ * The die() function is equivalent to exit() and is primarily used to terminate the execution of the script 
+ * and display a message before stopping the script execution.
+ */
+$name = "John";
+if (empty($name)) {
+    die("Name is required.");
+}
+echo "Hello, $name!";
+
+/**
+ * The exit() function is used to terminate the execution of the script. It is an alias of die() function.
+ */
+$name = "John";
+if (empty($name)) {
+    exit("Name is required.");
+}
+echo "Hello, $name!";
 ?>
 <!-- ----------------------------------------------------------------- -->
 
-<!-- (c) PHP Variables -->
+
+
+<!-- (c) PHP Variables rules -->
 <!-- Rules for PHP variables: -->
 <!-- 1. A variable starts with the $ sign, followed by the name of the variable -->
 <!-- 2. A variable name must start with a letter or the underscore character -->
@@ -34,6 +97,8 @@ $x = 5;
 $y = 10.5;
 ?>
 <!-- ----------------------------------------------------------------- -->
+
+
 
 <!-- (d) PHP Data Types -->
 <?php
@@ -86,6 +151,8 @@ var_dump($car); // object(Car)#1 (1) { ["model"]=> string(2) "VW" }
 
 <!-- ----------------------------------------------------------------- -->
 
+
+
 <!-- (e) PHP Constants -->
 <!-- Constants are like variables except that once they are defined they cannot be changed or undefined. -->
 <!-- Note: Unlike variables, constants are automatically global across the entire script. -->
@@ -107,6 +174,8 @@ define("cars", [
 echo cars[0];
 ?>
 <!-- ----------------------------------------------------------------- -->
+
+
 
 <!-- (f) Variable scope -->
 
