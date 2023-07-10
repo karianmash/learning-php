@@ -14,6 +14,7 @@ class MagicConstants
         echo "Current trait: " . __TRAIT__ . "\n";
         echo "Current method: " . __METHOD__ . "\n";
         echo "Current namespace: " . __NAMESPACE__ . "\n";
+        // echo "Fully qualified class name: " . CLASSNAME::CLASS . "\n";
     }
 }
 
